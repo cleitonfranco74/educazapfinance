@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EducaZap Finance — IA Financeira no Instagram</title>
+<meta name="description" content="Educacao financeira gamificada no Instagram com IA — trilhas de aprendizado, simulador de investimentos e controle financeiro para familias de baixa renda em Mato Grosso.">
+<meta name="keywords" content="educacao financeira, instagram, IA, investimentos, mato grosso, sinop, selic, cdb, poupanca">
+<link rel="canonical" href="https://educazapfinance.com.br">
+<meta property="og:title" content="EducaZap Finance — IA Financeira no Instagram">
+<meta property="og:description" content="Trilhas de aprendizado, simuladores e controle financeiro direto no Instagram. Gratis para comecar.">
+<meta property="og:url" content="https://educazapfinance.com.br">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080808;
+  --bg2:#0f0f0f;
+  --bg3:#141414;
+  --bg4:#1a1a1a;
+  --green:#00e676;
+  --green2:#00c853;
+  --green-a10:rgba(0,230,118,.1);
+  --green-a20:rgba(0,230,118,.2);
+  --green-a05:rgba(0,230,118,.05);
+  --ig1:#833ab4;
+  --ig2:#e1306c;
+  --ig3:#f77737;
+  --text:#f0f0f0;
+  --text2:#888;
+  --text3:#444;
+  --border:rgba(255,255,255,.06);
+  --border2:rgba(255,255,255,.1);
+  --r:14px;
+  --r2:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{display:block}
+
+/* ─── NAV ─────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:0 48px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(8,8,8,.8);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.5px}
+.logo em{color:var(--green);font-style:normal}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:14px;color:var(--text2);font-weight:400;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.btn-nav-ghost{font-size:13px;color:var(--text2);padding:8px 16px;border-radius:50px;border:1px solid var(--border2);transition:all .2s}
+.btn-nav-ghost:hover{color:var(--text);border-color:rgba(255,255,255,.2)}
+.btn-nav-cta{font-size:13px;font-weight:600;color:#000;background:var(--green);padding:9px 20px;border-radius:50px;transition:all .2s}
+.btn-nav-cta:hover{background:var(--green2);transform:translateY(-1px)}
+
+/* ─── HERO ────────────────────────────────────────── */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:120px 48px 80px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero-glow{
+  position:absolute;pointer-events:none;border-radius:50%;filter:blur(100px);
+}
+.hg1{width:700px;height:700px;top:-200px;left:50%;transform:translateX(-50%);
+  background:radial-gradient(ellipse,rgba(131,58,180,.15) 0%,transparent 70%)}
+.hg2{width:400px;height:400px;bottom:0;left:10%;
+  background:radial-gradient(ellipse,rgba(0,230,118,.08) 0%,transparent 70%)}
+.hg3{width:300px;height:300px;bottom:100px;right:10%;
+  background:radial-gradient(ellipse,rgba(225,48,108,.08) 0%,transparent 70%)}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--green-a10);border:1px solid var(--green-a20);
+  color:var(--green);padding:6px 16px;border-radius:50px;
+  font-size:12px;font-weight:600;letter-spacing:.04em;
+  margin-bottom:32px;position:relative;z-index:2;
+}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulsar 2s infinite}
+@keyframes pulsar{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+
+.hero h1{
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+  font-size:clamp(42px,6vw,76px);line-height:1.0;letter-spacing:-2px;
+  margin-bottom:24px;position:relative;z-index:2;
+}
+.hero h1 .ig-word{
+  background:linear-gradient(135deg,var(--ig1),var(--ig2),var(--ig3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero h1 .gr-word{color:var(--green)}
+
+.hero-sub{
+  font-size:18px;color:var(--text2);line-height:1.7;max-width:560px;
+  margin:0 auto 40px;font-weight:300;position:relative;z-index:2;
+}
+
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:60px;position:relative;z-index:2}
+.btn-hero-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--green);color:#000;
+  padding:15px 30px;border-radius:50px;font-size:15px;font-weight:700;
+  transition:all .2s;
+}
+.btn-hero-primary:hover{background:var(--green2);transform:translateY(-2px)}
+.btn-hero-secondary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--bg4);color:var(--text);
+  padding:15px 30px;border-radius:50px;font-size:15px;font-weight:500;
+  border:1px solid var(--border2);transition:all .2s;
+}
+.btn-hero-secondary:hover{border-color:rgba(255,255,255,.2);background:#222}
+
+.hero-social{display:flex;align-items:center;gap:20px;justify-content:center;position:relative;z-index:2;margin-bottom:80px}
+.social-av{display:flex}
+.social-av span{
+  width:32px;height:32px;border-radius:50%;border:2px solid var(--bg);
+  background:linear-gradient(135deg,var(--ig1),var(--ig2));
+  margin-left:-8px;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;color:#fff;
+}
+.social-av span:first-child{margin-left:0}
+.social-text{font-size:13px;color:var(--text2)}
+.social-text strong{color:var(--text);font-weight:600}
+
+/* ─── PHONE HERO ─────────────────────────────────── */
+.phones-row{
+  display:flex;align-items:flex-end;justify-content:center;
+  gap:20px;position:relative;z-index:2;
+}
+.phone-wrap{position:relative}
+.phone-wrap.center{transform:translateY(0);z-index:3}
+.phone-wrap.side{transform:translateY(30px) scale(.88);opacity:.6;z-index:2}
+
+.phone{
+  width:230px;background:#111;border-radius:38px;
+  border:2px solid rgba(255,255,255,.1);overflow:hidden;
+  box-shadow:0 40px 80px rgba(0,0,0,.8);
+}
+.phone-notch{
+  height:24px;background:#111;display:flex;align-items:center;
+  justify-content:center;padding-top:4px;
+}
+.notch-bar{width:72px;height:14px;background:#000;border-radius:0 0 12px 12px}
+.phone-screen{background:#000;min-height:440px;overflow:hidden}
+
+/* IG INTERFACE */
+.ig-top{
+  background:#000;padding:10px 14px 8px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid #1a1a1a;
+}
+.ig-name{
+  font-size:16px;font-weight:800;
+  background:linear-gradient(90deg,#405de6,#5851db,var(--ig1),#c13584,var(--ig2),#fd1d1d,var(--ig3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-family:'Bricolage Grotesque',sans-serif;
+}
+.ig-top-icons{display:flex;gap:14px}
+.ig-top-icons svg{opacity:.9}
+
+/* stories */
+.ig-stories{display:flex;gap:10px;padding:10px 12px 8px;overflow:hidden}
+.story{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
+.story-ring{
+  width:52px;height:52px;border-radius:50%;padding:2.5px;
+  background:linear-gradient(135deg,var(--ig3),var(--ig2),var(--ig1));
+}
+.story-inner{
+  width:100%;height:100%;border-radius:50%;
+  background:#1a1a1a;border:2px solid #000;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+}
+.story-lbl{font-size:9px;color:#bbb;text-align:center;max-width:52px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* post */
+.ig-post{border-bottom:1px solid #111}
+.post-head{display:flex;align-items:center;gap:8px;padding:8px 12px}
+.post-av{
+  width:30px;height:30px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--ig1),var(--ig2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;color:#fff;
+}
+.post-uname{font-size:12px;font-weight:700;color:#fff}
+.post-time{font-size:10px;color:#555}
+.post-body{background:#111;margin:0 10px;border-radius:12px;padding:12px;border:1px solid #1e1e1e}
+.post-tag2{font-size:9px;font-weight:700;letter-spacing:.06em;color:var(--green);background:rgba(0,230,118,.1);padding:2px 8px;border-radius:6px;display:inline-block;margin-bottom:8px}
+.post-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:5px;line-height:1.35}
+.post-desc{font-size:11px;color:#888;line-height:1.55;margin-bottom:10px}
+.post-bars{display:flex;gap:3px;align-items:flex-end;height:36px;margin-bottom:8px}
+.pb{border-radius:2px 2px 0 0;flex:1;transition:height .3s}
+.post-cta2{
+  width:100%;border:none;border-radius:8px;padding:8px;
+  font-size:11px;font-weight:700;cursor:pointer;
+  background:var(--green);color:#000;
+}
+.post-acts{display:flex;gap:12px;padding:7px 12px 5px;align-items:center}
+.act-ico{font-size:18px;cursor:pointer;opacity:.85}
+.post-likes{font-size:11px;font-weight:700;color:#fff;padding:0 12px 2px}
+.post-cap{padding:0 12px 8px;font-size:11px;color:#ccc;line-height:1.5}
+.post-cap b{color:#fff}
+
+/* DM view */
+.dm-top{background:#000;padding:9px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #1a1a1a}
+.dm-back{color:#fff;font-size:17px;cursor:pointer;line-height:1}
+.dm-av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--ig1),var(--ig2));display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff}
+.dm-info{flex:1}
+.dm-uname{font-size:13px;font-weight:700;color:#fff}
+.dm-online{font-size:10px;color:var(--green)}
+
+.dm-body{padding:10px;display:flex;flex-direction:column;gap:6px;background:#000;min-height:220px}
+.dm-msg{max-width:82%;border-radius:18px;padding:9px 13px;font-size:11px;line-height:1.55;animation:popMsg .25s ease}
+@keyframes popMsg{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.dm-in{background:#1e1e1e;color:#f0f0f0;align-self:flex-start;border-bottom-left-radius:4px}
+.dm-out{background:linear-gradient(135deg,var(--ig1),var(--ig2));color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.dm-ts{font-size:9px;color:#444;text-align:center;margin:2px 0}
+
+.dm-quick{display:flex;gap:5px;padding:7px 10px;overflow-x:auto;scrollbar-width:none}
+.dq{background:#1a1a1a;border:1px solid #2a2a2a;color:#ccc;border-radius:14px;padding:5px 10px;font-size:10px;white-space:nowrap;cursor:pointer;transition:all .2s}
+.dq:hover{border-color:var(--green);color:var(--green)}
+
+.dm-input-row{display:flex;gap:7px;padding:8px 10px;border-top:1px solid #1a1a1a;background:#000}
+.dm-inp{flex:1;background:#1a1a1a;border:none;border-radius:18px;padding:7px 12px;font-size:11px;color:#fff;outline:none;font-family:inherit}
+.dm-send-btn{
+  width:30px;height:30px;border-radius:50%;border:none;cursor:pointer;flex-shrink:0;
+  background:linear-gradient(135deg,var(--ig1),var(--ig2));
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* floating cards */
+.fc{
+  position:absolute;background:rgba(15,15,15,.95);
+  border:1px solid rgba(255,255,255,.08);border-radius:14px;
+  padding:10px 14px;box-shadow:0 8px 32px rgba(0,0,0,.6);
+  animation:floating 4s ease-in-out infinite;
+}
+.fc:nth-child(2){animation-delay:2s}
+@keyframes floating{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.fc-label{font-size:9px;color:var(--green);font-weight:700;letter-spacing:.06em;margin-bottom:4px;text-transform:uppercase}
+.fc-val{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;color:var(--text);line-height:1}
+.fc-sub{font-size:9px;color:var(--text3);margin-top:3px}
+.fc-dot{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;margin-right:4px;animation:pulsar 2s infinite}
+
+/* ─── TICKER ──────────────────────────────────────── */
+.ticker-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2);padding:14px 0}
+.ticker-track{display:flex;gap:0;animation:ticker 28s linear infinite;width:max-content}
+.ticker-item{display:flex;align-items:center;gap:20px;padding:0 36px;white-space:nowrap;border-right:1px solid var(--border)}
+.ti-name{font-size:11px;color:var(--text3);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.ti-val{font-size:14px;font-weight:700;color:var(--text);font-family:'Bricolage Grotesque',sans-serif}
+.ti-src{font-size:10px;color:var(--green);font-weight:500}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── SECTIONS ────────────────────────────────────── */
+.section{padding:100px 48px;position:relative;overflow:hidden}
+.section.alt{background:var(--bg2)}
+.section-inner{max-width:1100px;margin:0 auto}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--green-a10);border:1px solid var(--green-a20);
+  color:var(--green);padding:5px 14px;border-radius:50px;
+  font-size:11px;font-weight:700;letter-spacing:.05em;
+  margin-bottom:20px;
+}
+h2.sec-title{
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+  font-size:clamp(30px,4vw,50px);line-height:1.08;letter-spacing:-1.2px;
+  margin-bottom:18px;
+}
+.sec-sub{font-size:16px;color:var(--text2);line-height:1.7;font-weight:300;max-width:500px;margin-bottom:56px}
+
+/* ─── HOW IT WORKS ────────────────────────────────── */
+.steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.steps-list{display:flex;flex-direction:column;gap:12px}
+.step-item{
+  display:flex;gap:16px;padding:20px;border-radius:var(--r2);
+  border:1px solid var(--border);background:rgba(255,255,255,.02);
+  cursor:pointer;transition:all .25s;
+}
+.step-item:hover,.step-item.active{
+  border-color:var(--green-a20);background:var(--green-a05);
+  transform:translateX(4px);
+}
+.step-n{
+  width:38px;height:38px;border-radius:10px;flex-shrink:0;
+  background:var(--green-a10);border:1px solid var(--green-a20);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:14px;color:var(--green);
+}
+.step-body h4{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px}
+.step-body p{font-size:13px;color:var(--text2);line-height:1.55}
+
+.demo-phone{
+  background:#111;border-radius:30px;border:1.5px solid rgba(255,255,255,.1);
+  overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.7);
+}
+
+/* ─── FEATURES ────────────────────────────────────── */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feat{
+  background:rgba(255,255,255,.025);border:1px solid var(--border);
+  border-radius:var(--r2);padding:28px;position:relative;overflow:hidden;
+  transition:all .3s;
+}
+.feat::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,var(--green-a05),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.feat:hover{border-color:var(--green-a20);transform:translateY(-3px)}
+.feat:hover::before{opacity:1}
+.feat-ico{
+  width:46px;height:46px;border-radius:12px;
+  background:var(--green-a10);border:1px solid var(--green-a20);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:18px;
+}
+.feat-name{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px}
+.feat-desc{font-size:13px;color:var(--text2);line-height:1.6}
+.feat-pill{
+  display:inline-block;margin-top:14px;font-size:10px;font-weight:700;
+  padding:3px 10px;border-radius:20px;letter-spacing:.04em;
+}
+.fp-free{background:var(--green-a10);color:var(--green)}
+.fp-prem{background:rgba(131,58,180,.15);color:#c084fc}
+
+/* ─── INDICADORES ─────────────────────────────────── */
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ind-card{
+  background:var(--bg4);border:1px solid var(--border);
+  border-radius:var(--r2);padding:22px 24px;
+  transition:all .3s;
+}
+.ind-card:hover{border-color:var(--green-a20);background:var(--green-a05)}
+.ind-lbl{font-size:11px;color:var(--text3);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px}
+.ind-num{font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:800;color:var(--text);line-height:1;margin-bottom:4px}
+.ind-src-lbl{font-size:11px;color:var(--green);font-weight:600}
+.ind-bar{height:3px;background:var(--border);border-radius:2px;margin-top:12px;overflow:hidden}
+.ind-bar-fill{height:100%;background:linear-gradient(90deg,var(--green),rgba(0,230,118,.3));border-radius:2px}
+
+/* ─── TRILHAS ─────────────────────────────────────── */
+.trilhas-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
+.trilha{
+  border-radius:var(--r2);padding:28px;
+  border:1px solid var(--border);background:rgba(255,255,255,.02);
+  position:relative;overflow:hidden;transition:all .3s;
+}
+.trilha:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.12)}
+.trilha-bg-num{
+  position:absolute;top:8px;right:14px;
+  font-family:'Bricolage Grotesque',sans-serif;font-size:64px;font-weight:800;
+  opacity:.05;line-height:1;pointer-events:none;
+}
+.tr-level{display:inline-block;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:14px;letter-spacing:.04em}
+.tr-lv1{background:var(--green-a10);color:var(--green)}
+.tr-lv2{background:rgba(56,138,221,.12);color:#60a5fa}
+.tr-lv3{background:rgba(186,117,23,.12);color:#fcd34d}
+.tr-name{font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px}
+.tr-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:18px}
+.tr-prog{height:4px;background:rgba(255,255,255,.06);border-radius:2px;margin-bottom:16px;overflow:hidden}
+.tr-prog-fill{height:100%;border-radius:2px}
+.tr-chips{display:flex;flex-wrap:wrap;gap:6px}
+.tc{font-size:11px;padding:4px 10px;border-radius:8px;font-weight:500}
+.tc-done{background:var(--green-a10);color:var(--green)}
+.tc-cur{background:rgba(56,138,221,.1);color:#60a5fa}
+.tc-lock{background:rgba(255,255,255,.04);color:var(--text3)}
+.trilhas-extra{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* ─── PRICING ─────────────────────────────────────── */
+.pricing-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:780px;margin:0 auto}
+.plan{
+  border-radius:var(--r2);padding:36px;
+  border:1px solid var(--border);background:rgba(255,255,255,.02);
+  position:relative;
+}
+.plan.featured{
+  border-color:var(--green);
+  background:radial-gradient(ellipse 100% 60% at 50% 0%,rgba(0,230,118,.06),transparent);
+}
+.plan-badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--green);color:#000;font-size:11px;font-weight:800;
+  padding:4px 16px;border-radius:20px;letter-spacing:.03em;white-space:nowrap;
+}
+.plan-name{font-size:13px;font-weight:600;color:var(--text2);margin-bottom:10px}
+.plan-price{font-family:'Bricolage Grotesque',sans-serif;font-size:42px;font-weight:800;color:var(--text);line-height:1;margin-bottom:5px}
+.plan-price span{font-size:15px;font-weight:400;color:var(--text2)}
+.plan-tagline{font-size:13px;color:var(--text3);margin-bottom:28px}
+.plan-feats{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:32px}
+.plan-feats li{
+  display:flex;align-items:center;gap:10px;
+  font-size:13px;color:var(--text2);
+}
+.plan-feats li::before{
+  content:'';width:18px;height:18px;border-radius:50%;flex-shrink:0;
+  background:var(--green-a10);border:1px solid var(--green-a20);
+  background-image:url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%2300e676' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;
+}
+.plan-btn{
+  display:block;text-align:center;padding:14px;border-radius:50px;
+  font-size:14px;font-weight:700;transition:all .2s;
+}
+.pb-ghost{border:1px solid var(--border2);color:var(--text)}
+.pb-ghost:hover{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.04)}
+.pb-solid{background:var(--green);color:#000}
+.pb-solid:hover{background:var(--green2);transform:translateY(-1px)}
+
+/* ─── TESTIMONIALS ────────────────────────────────── */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.testi{
+  background:rgba(255,255,255,.025);border:1px solid var(--border);
+  border-radius:var(--r2);padding:26px;
+}
+.testi-stars{color:#fcd34d;font-size:13px;letter-spacing:3px;margin-bottom:14px}
+.testi-text{font-size:13px;color:var(--text2);line-height:1.7;font-style:italic;margin-bottom:18px}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-av{
+  width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:800;color:#fff;flex-shrink:0;
+}
+.testi-name{font-size:13px;font-weight:600;color:var(--text)}
+.testi-city{font-size:11px;color:var(--text3)}
+
+/* ─── CTA FINAL ───────────────────────────────────── */
+.cta-final{
+  text-align:center;padding:120px 48px;
+  background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(0,230,118,.07),transparent);
+  position:relative;overflow:hidden;
+}
+.cta-final h2{font-size:clamp(36px,5.5vw,66px)}
+.cta-final .sec-sub{margin:16px auto 44px;text-align:center}
+
+/* ─── FOOTER ──────────────────────────────────────── */
+footer{
+  border-top:1px solid var(--border);padding:40px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;
+}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:13px;color:var(--text3);transition:color .2s}
+.footer-links a:hover{color:var(--text2)}
+.footer-copy{font-size:12px;color:var(--text3)}
+
+/* ─── ANIMATIONS ──────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(28px);transition:all .65s cubic-bezier(.16,1,.3,1)}
+.reveal.show{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
+.reveal-d4{transition-delay:.4s}
+
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links,.btn-nav-ghost{display:none}
+  .hero{padding:100px 20px 60px}
+  .phones-row .phone-wrap.side{display:none}
+  .section{padding:70px 20px}
+  .steps-grid,.feat-grid,.ind-grid,.trilhas-wrap,.trilhas-extra,.pricing-wrap,.testi-grid{grid-template-columns:1fr}
+  footer{padding:28px 20px;flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">educa<em>zap</em></div>
+  <ul class="nav-links">
+    <li><a href="#como-funciona">Como funciona</a></li>
+    <li><a href="#funcionalidades">Funcionalidades</a></li>
+    <li><a href="#trilhas">Trilhas</a></li>
+    <li><a href="#planos">Planos</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#" class="btn-nav-ghost">Entrar</a>
+    <a href="https://instagram.com/educazap" target="_blank" rel="noopener" class="btn-nav-cta">Comecar gratis</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow hg1"></div>
+  <div class="hero-glow hg2"></div>
+  <div class="hero-glow hg3"></div>
+
+  <div class="hero-eyebrow reveal">
+    <span class="pulse"></span>
+    IA Financeira para o Instagram
+  </div>
+
+  <h1 class="reveal reveal-d1">
+    Educacao financeira<br>
+    no seu <span class="ig-word">Instagram</span><br>
+    com <span class="gr-word">IA</span>
+  </h1>
+
+  <p class="hero-sub reveal reveal-d2">
+    Trilhas de aprendizado, simuladores de investimento e controle financeiro
+    — tudo dentro do Direct do Instagram. Sem baixar nenhum aplicativo.
+  </p>
+
+  <div class="hero-ctas reveal reveal-d3">
+    <a href="https://instagram.com/educazap" target="_blank" rel="noopener" class="btn-hero-primary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      Comecar no Instagram gratis
+    </a>
+    <a href="#como-funciona" class="btn-hero-secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+      Ver como funciona
+    </a>
+  </div>
+
+  <div class="hero-social reveal reveal-d4">
+    <div class="social-av">
+      <span style="background:linear-gradient(135deg,#833ab4,#e1306c)">M</span>
+      <span style="background:linear-gradient(135deg,#1d9e75,#0f6e56)">C</span>
+      <span style="background:linear-gradient(135deg,#ba7517,#854f0b)">J</span>
+      <span style="background:linear-gradient(135deg,#185fa5,#0c447c)">A</span>
+    </div>
+    <div class="social-text"><strong>+2.400 familias</strong> ja estao aprendendo em Mato Grosso</div>
+  </div>
+
+  <!-- PHONES -->
+  <div class="phones-row reveal">
+
+    <!-- LEFT PHONE -->
+    <div class="phone-wrap side">
+      <div class="phone" style="width:200px">
+        <div class="phone-notch"><div class="notch-bar"></div></div>
+        <div class="phone-screen">
+          <div class="ig-top">
+            <div class="ig-name">@educazap</div>
+            <div class="ig-top-icons">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+            </div>
+          </div>
+          <div style="padding:12px;background:#000">
+            <div class="ind-card" style="margin-bottom:10px;padding:14px">
+              <div class="ind-lbl">Selic hoje</div>
+              <div class="ind-num" style="font-size:22px">10,50%</div>
+              <div class="ind-src-lbl">BACEN SGS</div>
+              <div class="ind-bar"><div class="ind-bar-fill" style="width:75%"></div></div>
+            </div>
+            <div class="ind-card" style="padding:14px">
+              <div class="ind-lbl">Dolar</div>
+              <div class="ind-num" style="font-size:22px">R$ 5,87</div>
+              <div class="ind-src-lbl">BACEN SGS</div>
+              <div class="ind-bar"><div class="ind-bar-fill" style="width:60%;background:linear-gradient(90deg,#60a5fa,rgba(96,165,250,.3))"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER PHONE -->
+    <div class="phone-wrap center" style="position:relative">
+      <div class="fc" style="top:40px;right:-120px;min-width:150px">
+        <div class="fc-label"><span class="fc-dot"></span>Selic ao ano</div>
+        <div class="fc-val">10,50%</div>
+        <div class="fc-sub">Fonte: BACEN SGS</div>
+      </div>
+      <div class="fc" style="bottom:80px;left:-130px;min-width:148px;animation-delay:2s">
+        <div class="fc-label">Sua pontuacao</div>
+        <div class="fc-val">310 pts</div>
+        <div class="fc-sub">Nivel 2 de 3</div>
+      </div>
+
+      <div class="phone">
+        <div class="phone-notch"><div class="notch-bar"></div></div>
+        <div class="phone-screen" id="main-screen">
+
+          <!-- FEED -->
+          <div id="screen-feed">
+            <div class="ig-top">
+              <div class="ig-name">@educazap</div>
+              <div class="ig-top-icons">
+                <svg width="20" height="20" fill="#fff" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+              </div>
+            </div>
+            <div class="ig-stories">
+              <div class="story">
+                <div class="story-ring"><div class="story-inner" style="background:linear-gradient(135deg,#00e676,#00c853);font-size:18px;color:#000;font-weight:800">+</div></div>
+                <span class="story-lbl">Seu story</span>
+              </div>
+              <div class="story"><div class="story-ring"><div class="story-inner">💰</div></div><span class="story-lbl">Dica #1</span></div>
+              <div class="story"><div class="story-ring"><div class="story-inner">📈</div></div><span class="story-lbl">Selic</span></div>
+              <div class="story"><div class="story-ring"><div class="story-inner">🎯</div></div><span class="story-lbl">Metas</span></div>
+            </div>
+            <div class="ig-post">
+              <div class="post-head">
+                <div class="post-av">EZ</div>
+                <div style="flex:1"><div class="post-uname">@educazap</div><div class="post-time">agora</div></div>
+              </div>
+              <div class="post-body">
+                <span class="post-tag2">Dica do dia</span>
+                <div class="post-title">Tesouro Selic vs Poupanca</div>
+                <div class="post-desc">R$300/mes por 24 meses. Veja a diferenca real.</div>
+                <div class="post-bars">
+                  <div class="pb" style="height:55%;background:rgba(131,58,180,.4)"></div>
+                  <div class="pb" style="height:70%;background:rgba(0,230,118,.5)"></div>
+                  <div class="pb" style="height:88%;background:var(--green)"></div>
+                  <div class="pb" style="height:75%;background:rgba(0,230,118,.7)"></div>
+                  <div class="pb" style="height:50%;background:rgba(131,58,180,.35)"></div>
+                  <div class="pb" style="height:65%;background:rgba(0,230,118,.45)"></div>
+                </div>
+                <button class="post-cta2" onclick="showDM()">Ver no Direct ↗</button>
+              </div>
+              <div class="post-acts">
+                <span class="act-ico">♡</span>
+                <span class="act-ico">💬</span>
+                <span class="act-ico">➤</span>
+              </div>
+              <div class="post-likes">1.243 curtidas</div>
+              <div class="post-cap"><b>@educazap</b> Sabia que a poupanca rende so 6,17% ao ano? <b>#educacaofinanceira</b></div>
+            </div>
+          </div>
+
+          <!-- DM -->
+          <div id="screen-dm" style="display:none">
+            <div class="dm-top">
+              <span class="dm-back" onclick="showFeed()">&#8592;</span>
+              <div class="dm-av">EZ</div>
+              <div class="dm-info">
+                <div class="dm-uname">@educazap</div>
+                <div class="dm-online">Online agora</div>
+              </div>
+            </div>
+            <div class="dm-body" id="dm-msgs">
+              <div class="dm-ts">agora</div>
+              <div class="dm-msg dm-in">Oi Maria! Sou o EducaZap, sua IA financeira no Instagram. O que quer fazer hoje?</div>
+              <div class="dm-msg dm-out">Simular investimento!</div>
+              <div class="dm-msg dm-in">
+                Selic: <b style="color:var(--green)">10,50%/ano</b><br>
+                CDI: 10,40% | Poupanca: 6,17%<br><br>
+                R$ 300/mes por 24 meses:<br>
+                1 Tesouro Selic — <b style="color:var(--green)">R$ 7.812</b><br>
+                2 CDB 100% CDI — R$ 7.775<br>
+                3 Poupanca — <b style="color:#888">R$ 7.404</b>
+              </div>
+              <div class="dm-msg dm-out">Quero criar uma meta!</div>
+              <div class="dm-msg dm-in">Recomendo comecar pela Reserva de Emergencia: 3x sua renda. Qual sua renda mensal?</div>
+            </div>
+            <div class="dm-quick">
+              <button class="dq">Ver trilhas</button>
+              <button class="dq">Indicadores</button>
+              <button class="dq">Dica do dia</button>
+              <button class="dq">Metas</button>
+            </div>
+            <div class="dm-input-row">
+              <input type="text" class="dm-inp" placeholder="Mensagem..."/>
+              <button class="dm-send-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z" fill="#fff"/></svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PHONE -->
+    <div class="phone-wrap side">
+      <div class="phone" style="width:200px">
+        <div class="phone-notch"><div class="notch-bar"></div></div>
+        <div class="phone-screen">
+          <div class="dm-top">
+            <div class="dm-av">EZ</div>
+            <div class="dm-info"><div class="dm-uname">@educazap</div><div class="dm-online">Online agora</div></div>
+          </div>
+          <div class="dm-body" style="min-height:280px;padding:12px 10px;gap:7px">
+            <div class="dm-ts">Trilha 2 — Licao 3</div>
+            <div class="dm-msg dm-in" style="font-size:11px">Juros compostos:<br>R$300/mes × 120 meses = <b style="color:var(--green)">R$ 62.850</b></div>
+            <div class="dm-msg dm-out" style="font-size:11px">Criar meta de poupanca!</div>
+            <div class="dm-msg dm-in" style="font-size:11px">
+              <div style="margin-bottom:6px;font-weight:700">Meta criada!</div>
+              Reserva emergencia<br>
+              <div style="background:rgba(255,255,255,.06);border-radius:6px;height:5px;margin:6px 0;overflow:hidden"><div style="height:100%;width:13%;background:var(--green);border-radius:6px"></div></div>
+              R$600 de R$4.500 (13%)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker">
+    <div class="ticker-item"><span class="ti-name">Selic</span><span class="ti-val">10,50%</span><span class="ti-src">BACEN</span></div>
+    <div class="ticker-item"><span class="ti-name">CDI</span><span class="ti-val">10,40%</span><span class="ti-src">BACEN</span></div>
+    <div class="ticker-item"><span class="ti-name">IPCA 12m</span><span class="ti-val">4,83%</span><span class="ti-src">IBGE</span></div>
+    <div class="ticker-item"><span class="ti-name">Dolar</span><span class="ti-val">R$ 5,87</span><span class="ti-src">BACEN</span></div>
+    <div class="ticker-item"><span class="ti-name">Poupanca</span><span class="ti-val">6,17%</span><span class="ti-src">BACEN</span></div>
+    <div class="ticker-item"><span class="ti-name">IPC-Sinop</span><span class="ti-val">5,12%</span><span class="ti-src">CISE/UNEMAT</span></div>
+    <div class="ticker-item"><span class="ti-name">Cesta Basica MT</span><span class="ti-val">R$ 758</span><span class="ti-src">CISE/UNEMAT</span></div>
+    <!-- duplicate for loop -->
+    <div class="ticker-item"><span class="ti-name">Selic</span><span class="ti-val">10,50%</span><span class="ti-src">BACEN</span></div>
+    <div class="ticker-item"><span class="ti-name">CDI</span><span class="ti-val">10,40%</span><span class="ti-src">BACEN</span></div>
+    <div class="ticker-item"><span class="ti-name">IPCA 12m</span><span class="ti-val">4,83%</span><span class="ti-src">IBGE</span></div>
+    <div class="ticker-item"><span class="ti-name">Dolar</span><span class="ti-val">R$ 5,87</span><span class="ti-src">BACEN</span></div>
+    <div class="ticker-item"><span class="ti-name">Poupanca</span><span class="ti-val">6,17%</span><span class="ti-src">BACEN</span></div>
+    <div class="ticker-item"><span class="ti-name">IPC-Sinop</span><span class="ti-val">5,12%</span><span class="ti-src">CISE/UNEMAT</span></div>
+    <div class="ticker-item"><span class="ti-name">Cesta Basica MT</span><span class="ti-val">R$ 758</span><span class="ti-src">CISE/UNEMAT</span></div>
+  </div>
+</div>
+
+<!-- COMO FUNCIONA -->
+<div class="section" id="como-funciona">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Como funciona</div>
+    <h2 class="sec-title reveal reveal-d1">Do feed ao aprendizado<br>em 3 passos</h2>
+    <p class="sec-sub reveal reveal-d2">Voce ve um post do EducaZap no Instagram, clica em "ver no Direct" e sua IA financeira pessoal ja esta pronta para comecar.</p>
+
+    <div class="steps-grid">
+      <div class="steps-list">
+        <div class="step-item active reveal">
+          <div class="step-n">01</div>
+          <div class="step-body">
+            <h4>Veja a dica no feed</h4>
+            <p>Posts diarios com indicadores do BACEN, desafios financeiros e simulacoes aparecem direto no seu feed do Instagram.</p>
+          </div>
+        </div>
+        <div class="step-item reveal reveal-d1">
+          <div class="step-n">02</div>
+          <div class="step-body">
+            <h4>Abra o Direct com um clique</h4>
+            <p>Clicou no post? O Direct do EducaZap abre automaticamente. Sem cadastro, sem download, sem complicacao.</p>
+          </div>
+        </div>
+        <div class="step-item reveal reveal-d2">
+          <div class="step-n">03</div>
+          <div class="step-body">
+            <h4>Aprenda, simule e pratique</h4>
+            <p>Trilhas gamificadas, simuladores com dados reais e controle financeiro pessoal — tudo dentro do chat.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-phone reveal reveal-d3">
+        <div class="dm-top">
+          <div class="dm-av">EZ</div>
+          <div class="dm-info"><div class="dm-uname">@educazap</div><div class="dm-online">Online agora</div></div>
+        </div>
+        <div class="dm-body" style="min-height:300px;padding:14px 12px;gap:8px">
+          <div class="dm-ts">Trilha 1 — Nivel Basico — Gratis</div>
+          <div class="dm-msg dm-in">Ola! Vou te ajudar a entender a Regra 50-30-20. Quanto e sua renda mensal?</div>
+          <div class="dm-msg dm-out">R$ 1.500</div>
+          <div class="dm-msg dm-in">
+            Com R$1.500, seu orcamento ideal e:<br><br>
+            Necessidades: <b style="color:var(--green)">R$ 750</b> (50%)<br>
+            Desejos: <b style="color:#60a5fa">R$ 450</b> (30%)<br>
+            Poupanca: <b style="color:#fcd34d">R$ 300</b> (20%)
+          </div>
+          <div class="dm-msg dm-out">Quero simular minha poupanca!</div>
+          <div class="dm-msg dm-in">Guardando R$300/mes a 10,50% ao ano no Tesouro Selic:<br><br>12 meses → <b style="color:var(--green)">R$ 3.789</b><br>24 meses → <b style="color:var(--green)">R$ 7.812</b><br>60 meses → <b style="color:var(--green)">R$ 23.740</b></div>
+        </div>
+        <div class="dm-quick">
+          <button class="dq">Criar meta</button><button class="dq">Proxima licao</button><button class="dq">Ver trilhas</button>
+        </div>
+        <div class="dm-input-row">
+          <input type="text" class="dm-inp" placeholder="Responda aqui..."/>
+          <button class="dm-send-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z" fill="#fff"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FUNCIONALIDADES -->
+<div class="section alt" id="funcionalidades">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Funcionalidades</div>
+    <h2 class="sec-title reveal reveal-d1">Tudo que voce precisa<br>no Instagram</h2>
+    <p class="sec-sub reveal reveal-d2">Do controle de gastos ao simulador de investimentos — sem sair do app que voce ja usa todo dia.</p>
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <div class="feat-ico">📊</div>
+        <div class="feat-name">Controle financeiro</div>
+        <div class="feat-desc">Registre receitas e despesas em linguagem natural. A IA categoriza automaticamente e mostra o orcamento 50-30-20 em tempo real.</div>
+        <span class="feat-pill fp-free">Gratis</span>
+      </div>
+      <div class="feat reveal reveal-d1">
+        <div class="feat-ico">📈</div>
+        <div class="feat-name">Simulador de investimentos</div>
+        <div class="feat-desc">Compare Tesouro Selic, CDB e Poupanca com dados reais do Banco Central. Calcule o rendimento em 1, 2 ou 5 anos.</div>
+        <span class="feat-pill fp-prem">Premium</span>
+      </div>
+      <div class="feat reveal reveal-d2">
+        <div class="feat-ico">🎯</div>
+        <div class="feat-name">Metas gamificadas</div>
+        <div class="feat-desc">Crie metas com progresso em tempo real e receba lembretes automaticos no Direct para manter o ritmo.</div>
+        <span class="feat-pill fp-prem">Premium</span>
+      </div>
+      <div class="feat reveal reveal-d1">
+        <div class="feat-ico">🤖</div>
+        <div class="feat-name">IA personalizada por RNA</div>
+        <div class="feat-desc">Redes Neurais Artificiais adaptam a linguagem, o ritmo e o conteudo ao seu perfil — do jovem aprendiz ao adulto de baixa renda.</div>
+        <span class="feat-pill fp-prem">Premium</span>
+      </div>
+      <div class="feat reveal reveal-d2">
+        <div class="feat-ico">💡</div>
+        <div class="feat-name">Dicas diarias</div>
+        <div class="feat-desc">Alertas personalizados baseados nos indicadores do dia — Selic, dolar, inflacao e IPC-Sinop, dados exclusivos CISE/UNEMAT.</div>
+        <span class="feat-pill fp-free">Gratis</span>
+      </div>
+      <div class="feat reveal reveal-d3">
+        <div class="feat-ico">🏆</div>
+        <div class="feat-name">Gamificacao</div>
+        <div class="feat-desc">Pontos, conquistas, badges e desafios semanais que tornam o aprendizado financeiro divertido e um habito diario.</div>
+        <span class="feat-pill fp-free">Gratis</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INDICADORES -->
+<div class="section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Dados em tempo real</div>
+    <h2 class="sec-title reveal reveal-d1">Indicadores financeiros<br>direto na sua conversa</h2>
+    <p class="sec-sub reveal reveal-d2">Integramos as APIs publicas do BACEN e IBGE, mais os dados exclusivos do CISE/UNEMAT (IPC-Sinop e cesta basica), para contextualizar cada dica financeira para a sua realidade em Mato Grosso.</p>
+    <div class="ind-grid">
+      <div class="ind-card reveal">
+        <div class="ind-lbl">Taxa Selic</div>
+        <div class="ind-num">10,50%</div>
+        <div class="ind-src-lbl">BACEN SGS — ao ano</div>
+        <div class="ind-bar"><div class="ind-bar-fill" style="width:78%"></div></div>
+      </div>
+      <div class="ind-card reveal reveal-d1">
+        <div class="ind-lbl">CDI</div>
+        <div class="ind-num">10,40%</div>
+        <div class="ind-src-lbl">BACEN SGS — ao ano</div>
+        <div class="ind-bar"><div class="ind-bar-fill" style="width:75%"></div></div>
+      </div>
+      <div class="ind-card reveal reveal-d2">
+        <div class="ind-lbl">IPCA — inflacao</div>
+        <div class="ind-num">4,83%</div>
+        <div class="ind-src-lbl">IBGE — acumulado 12 meses</div>
+        <div class="ind-bar"><div class="ind-bar-fill" style="width:38%;background:linear-gradient(90deg,#fcd34d,rgba(252,211,77,.3))"></div></div>
+      </div>
+      <div class="ind-card reveal reveal-d1">
+        <div class="ind-lbl">Dolar comercial</div>
+        <div class="ind-num">R$ 5,87</div>
+        <div class="ind-src-lbl">BACEN SGS — venda</div>
+        <div class="ind-bar"><div class="ind-bar-fill" style="width:60%;background:linear-gradient(90deg,#60a5fa,rgba(96,165,250,.3))"></div></div>
+      </div>
+      <div class="ind-card reveal reveal-d2">
+        <div class="ind-lbl">IPC-Sinop</div>
+        <div class="ind-num">5,12%</div>
+        <div class="ind-src-lbl">CISE/UNEMAT — exclusivo MT</div>
+        <div class="ind-bar"><div class="ind-bar-fill" style="width:44%"></div></div>
+      </div>
+      <div class="ind-card reveal reveal-d3">
+        <div class="ind-lbl">Cesta basica — Sinop</div>
+        <div class="ind-num">R$ 758</div>
+        <div class="ind-src-lbl">CISE/UNEMAT — marco/2026</div>
+        <div class="ind-bar"><div class="ind-bar-fill" style="width:85%;background:linear-gradient(90deg,#c084fc,rgba(192,132,252,.3))"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRILHAS -->
+<div class="section alt" id="trilhas">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Trilhas de aprendizado</div>
+    <h2 class="sec-title reveal reveal-d1">Do vermelho ao<br>investidor consciente</h2>
+    <p class="sec-sub reveal reveal-d2">Tres niveis progressivos, desbloqueados conforme voce avanca — com conteudo adaptado para a sua realidade economica.</p>
+
+    <div class="trilhas-wrap">
+      <div class="trilha reveal">
+        <div class="trilha-bg-num">01</div>
+        <span class="tr-level tr-lv1">Nivel 1 — Gratis</span>
+        <div class="tr-name">Saindo do vermelho</div>
+        <div class="tr-desc">Para quem quer parar de se endividar, organizar os gastos e construir a primeira reserva de emergencia.</div>
+        <div class="tr-prog"><div class="tr-prog-fill" style="width:100%;background:var(--green)"></div></div>
+        <div class="tr-chips">
+          <span class="tc tc-done">Orcamento pessoal</span>
+          <span class="tc tc-done">Regra 50-30-20</span>
+          <span class="tc tc-done">Sair das dividas</span>
+          <span class="tc tc-done">Reserva emergencia</span>
+          <span class="tc tc-done">Consumo consciente</span>
+        </div>
+      </div>
+      <div class="trilha reveal reveal-d1">
+        <div class="trilha-bg-num">02</div>
+        <span class="tr-level tr-lv2">Nivel 2 — Premium</span>
+        <div class="tr-name">Construindo reservas</div>
+        <div class="tr-desc">Para quem ja organiza os gastos e quer comecar a poupar de verdade e entender os primeiros investimentos.</div>
+        <div class="tr-prog"><div class="tr-prog-fill" style="width:60%;background:#60a5fa"></div></div>
+        <div class="tr-chips">
+          <span class="tc tc-done">Habitos de poupanca</span>
+          <span class="tc tc-done">Juros simples</span>
+          <span class="tc tc-cur">Juros compostos</span>
+          <span class="tc tc-lock">Tesouro Direto</span>
+          <span class="tc tc-lock">Previdencia</span>
+        </div>
+      </div>
+      <div class="trilha reveal reveal-d2">
+        <div class="trilha-bg-num">03</div>
+        <span class="tr-level tr-lv3">Nivel 3 — Premium</span>
+        <div class="tr-name">Investindo o futuro</div>
+        <div class="tr-desc">Para quem ja poupa e quer diversificar em CDB, LCI, acoes e entender sobre criptomoedas com seguranca.</div>
+        <div class="tr-prog"><div class="tr-prog-fill" style="width:0%;background:#fcd34d"></div></div>
+        <div class="tr-chips">
+          <span class="tc tc-lock">CDB e LCI/LCA</span>
+          <span class="tc tc-lock">Fundos</span>
+          <span class="tc tc-lock">Intro a acoes</span>
+          <span class="tc tc-lock">Previdencia</span>
+          <span class="tc tc-lock">Cripto com seguranca</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="trilhas-extra">
+      <div class="trilha reveal" style="margin-top:0">
+        <span class="tr-level" style="background:rgba(225,48,108,.12);color:#f472b6">Trilha Jovem Aprendiz</span>
+        <div class="tr-name">Primeiro salario</div>
+        <div class="tr-desc">FGTS, carteira assinada e planejamento do primeiro emprego. Para jovens de 16 a 24 anos em linguagem proxima da realidade deles.</div>
+      </div>
+      <div class="trilha reveal reveal-d1" style="margin-top:0">
+        <span class="tr-level" style="background:rgba(99,153,34,.12);color:#86efac">Trilha Familia</span>
+        <div class="tr-name">Financas em familia</div>
+        <div class="tr-desc">Desafios colaborativos para pais e filhos. Alinhada a BNCC para Ensino Fundamental e Medio com linguagem ludica.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="section" id="planos">
+  <div class="section-inner" style="text-align:center">
+    <div class="eyebrow reveal" style="justify-content:center">Planos</div>
+    <h2 class="sec-title reveal reveal-d1" style="text-align:center">Simples e acessivel</h2>
+    <p class="sec-sub reveal reveal-d2" style="margin:0 auto 56px;text-align:center">Comece gratis e avance no seu tempo. Cancele quando quiser.</p>
+    <div class="pricing-wrap">
+      <div class="plan reveal">
+        <div class="plan-name">Gratis</div>
+        <div class="plan-price">R$ 0<span>/sempre</span></div>
+        <div class="plan-tagline">Para comecar a jornada</div>
+        <ul class="plan-feats">
+          <li>Trilha Nivel 1 completa</li>
+          <li>Controle de gastos basico</li>
+          <li>Dicas diarias no Instagram</li>
+          <li>Indicadores BACEN e IBGE</li>
+          <li>Sistema de pontos e badges</li>
+        </ul>
+        <a href="https://instagram.com/educazap" target="_blank" rel="noopener" class="plan-btn pb-ghost">Comecar gratis</a>
+      </div>
+      <div class="plan featured reveal reveal-d1">
+        <div class="plan-badge">Mais popular</div>
+        <div class="plan-name">Premium</div>
+        <div class="plan-price">R$ 9,90<span>/mes</span></div>
+        <div class="plan-tagline">Para quem quer prosperidade de verdade</div>
+        <ul class="plan-feats">
+          <li>Tudo do plano Gratis</li>
+          <li>Trilhas Nivel 2 e 3 completas</li>
+          <li>Simulador avancado Selic / CDB</li>
+          <li>Metas financeiras gamificadas</li>
+          <li>IA personalizada por RNA</li>
+          <li>Certificados digitais</li>
+          <li>Trilhas Jovem Aprendiz e Familia</li>
+        </ul>
+        <a href="https://instagram.com/educazap" target="_blank" rel="noopener" class="plan-btn pb-solid">Assinar por R$ 9,90/mes</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DEPOIMENTOS -->
+<div class="section alt">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Depoimentos</div>
+    <h2 class="sec-title reveal reveal-d1">Quem ja usa o EducaZap</h2>
+    <p class="sec-sub reveal reveal-d2">Familias em Sinop e no norte de Mato Grosso que transformaram sua vida financeira pelo Instagram.</p>
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Nunca entendi juros compostos. Depois da Trilha 2, abri meu Tesouro Direto pela primeira vez. Parece impossivel, mas e verdade."</div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:linear-gradient(135deg,var(--ig1),var(--ig2))">MR</div>
+          <div><div class="testi-name">Maria Rosa</div><div class="testi-city">Sinop, MT</div></div>
+        </div>
+      </div>
+      <div class="testi reveal reveal-d1">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Meu filho entrou no Jovem Aprendiz e nao sabia o que fazer com o salario. O EducaZap ensinou ele a poupar 20% desde o primeiro mes."</div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:linear-gradient(135deg,#1d9e75,#0f6e56)">CS</div>
+          <div><div class="testi-name">Claudia Santos</div><div class="testi-city">Sorriso, MT</div></div>
+        </div>
+      </div>
+      <div class="testi reveal reveal-d2">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Aprendi pelo Instagram, sem baixar nada. Em 3 meses juntei minha reserva de emergencia — coisa que nunca tinha conseguido em 10 anos."</div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:linear-gradient(135deg,#ba7517,#854f0b)">JP</div>
+          <div><div class="testi-name">Joao Paulo</div><div class="testi-city">Alta Floresta, MT</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta-final">
+  <div class="eyebrow reveal" style="justify-content:center">Pronto para comecar?</div>
+  <h2 class="sec-title reveal reveal-d1">Sua jornada financeira<br>comeca hoje</h2>
+  <p class="sec-sub reveal reveal-d2">Junte-se a milhares de familias em Mato Grosso que estao organizando as financas, poupando dinheiro e investindo — direto no Instagram.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap" class="reveal reveal-d3">
+    <a href="https://instagram.com/educazap" target="_blank" rel="noopener" class="btn-hero-primary" style="font-size:16px;padding:16px 34px">Comecar gratis no Instagram</a>
+    <a href="#planos" class="btn-hero-secondary" style="font-size:16px;padding:16px 34px">Ver todos os planos</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">educa<em>zap</em> <span style="font-size:14px;font-weight:400;color:var(--text3)">finance</span></div>
+  <div class="footer-links">
+    <a href="#">Privacidade</a>
+    <a href="#">Termos</a>
+    <a href="#">Contato</a>
+    <a href="#">FAPEMAT / Centelha MT</a>
+  </div>
+  <div class="footer-copy">2026 EducaZap — educazapfinance.com.br — Sinop, MT — UNEMAT / CNPq / FINEP</div>
+</footer>
+
+<script>
+function showDM(){
+  document.getElementById('screen-feed').style.display='none';
+  document.getElementById('screen-dm').style.display='block';
+}
+function showFeed(){
+  document.getElementById('screen-dm').style.display='none';
+  document.getElementById('screen-feed').style.display='block';
+}
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
