@@ -11,7 +11,7 @@ O EducaZap é uma plataforma de educação financeira gamificada integrada ao In
 ## Páginas
 
 - `/` — landing page institucional
-- `/boi-na-bolsa/` — **Boi na Bolsa**: simulador de hedge BGI/B3, margem de garantia, futuro × put, confinamento 90 dias, trava de milho CCM, histórico CEPEA e previsão de preços (curso SENAR-MT/FAMATO)
+- `/boi-na-bolsa/` — redireciona para o **Boi na Bolsa** (https://cleitonfranco74.github.io/boibolsa/, repositório [boibolsa](https://github.com/cleitonfranco74/boibolsa)): simulador de hedge BGI/B3, margem de garantia, futuro × put, confinamento 90 dias, trava de milho CCM, histórico CEPEA e previsão de preços (curso SENAR-MT/FAMATO)
 
 ## Tecnologias
 
