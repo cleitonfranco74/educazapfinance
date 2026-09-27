@@ -8,6 +8,11 @@ Landing page institucional do EducaZap — plataforma de educação financeira p
 
 O EducaZap é uma plataforma de educação financeira gamificada integrada ao Instagram, com trilhas de aprendizado personalizadas por Inteligência Artificial, simuladores de investimento com dados reais do Banco Central (BACEN) e controle financeiro pessoal — tudo dentro do Direct do Instagram, sem necessidade de baixar aplicativos.
 
+## Páginas
+
+- `/` — landing page institucional
+- `/boi-na-bolsa/` — **Boi na Bolsa**: simulador de hedge BGI/B3, margem de garantia, futuro × put, confinamento 90 dias, trava de milho CCM, histórico CEPEA e previsão de preços (curso SENAR-MT/FAMATO)
+
 ## Tecnologias
 
 - HTML5 + CSS3 + JavaScript puro
